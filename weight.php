@@ -11,7 +11,7 @@
 		</div>
 
 		<?php if($input != 0) { ?>
-
+			<?php if($weight->error_message() == "") { ?>
 
 			<div class="resultsText">
 				<span>From:</span> <?php  echo ucfirst($type); ?>
@@ -28,6 +28,13 @@
 			<div class="resultsNumber">
 				<span>After:</span> <?php echo $weight->convert_to(); ?>
 			</div>
+			<?php } else if($weight->error_message() != "") { ?>
+
+				<div class="resultsText">
+					<?php echo $weight->error_message(); ?>
+				</div>
+				
+			<?php } ?>
 
 		<?php } else { ?>
 
